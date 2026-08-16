@@ -1,0 +1,21 @@
+{
+  "name": "codewithabkhan.github.io",
+  "version": "1.0.0",
+  "description": "Public portfolio source for `https://codewithabkhan.github.io/`.",
+  "scripts": {
+    "build:css": "npx @tailwindcss/cli -i Styles/app.css -o wwwroot/css/app.css --minify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodeWithAbkhan/codewithabkhan.github.io.git"
+  },
+  "private": true,
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/CodeWithAbkhan/codewithabkhan.github.io/issues"
+  },
+  "homepage": "https://github.com/CodeWithAbkhan/codewithabkhan.github.io#readme",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.3"
+  }
+}
