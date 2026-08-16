@@ -31,6 +31,15 @@ jobs:
         with:
           dotnet-version: 8.0.x
 
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install CSS dependencies
+        run: npm ci
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 

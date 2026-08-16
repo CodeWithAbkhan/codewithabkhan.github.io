@@ -1,0 +1,12 @@
+bin/
+obj/
+node_modules/
+.vs/
+.vscode/
+*.user
+*.suo
+*.cache
+*.log
+live-before.png
+portfolio-*.png
+TestResults/

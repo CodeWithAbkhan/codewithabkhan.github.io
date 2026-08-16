@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\buildMultiTargeting\codewithabkhan.github.io.props" />
-</Project>

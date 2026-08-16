@@ -1,10 +1,11 @@
 {
-  "name": "CodeWithABKhan Verified Portfolio",
-  "short_name": "CodeWithABKhan",
+  "name": "CodeWithABKhan — AI Systems & Business Software",
+  "short_name": "CW/ABK",
+  "description": "Practical AI agents, .NET products, and operational business software.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#f6f4ef",
-  "theme_color": "#1b1a3e",
+  "background_color": "#f2eee3",
+  "theme_color": "#151512",
   "icons": [
     {
       "src": "android-chrome-192x192.png",

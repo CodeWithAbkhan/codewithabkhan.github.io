@@ -1,39 +1,40 @@
 @page "/work"
 
-<PageTitle>Verified Work | CodeWithABKhan</PageTitle>
+<PageTitle>Selected Work | CodeWithABKhan</PageTitle>
 
-<section class="section-shell page-intro">
-    <p class="section-kicker">Verified work index</p>
-    <h1>Public repositories and proof links</h1>
-    <p>
-        This page lists the public artifacts currently safe to cite on the portfolio. If a claim cannot be traced to one of these
-        public references, it should not appear as fact elsewhere on the site.
+<section class="subpage-hero section-frame">
+    <div>
+        <span class="section-number">WORK / PUBLIC INDEX</span>
+        <h1>Built things.<br /><em>Visible proof.</em></h1>
+    </div>
+    <p class="subpage-intro">
+        A focused index of public repositories and live artifacts across business software,
+        AI-assisted development, publishing, and procedural 3D.
     </p>
 </section>
 
-<section class="section-shell">
-    <div class="project-grid">
+<section class="page-section section-frame">
+    <div class="work-index">
         @foreach (var project in Projects)
         {
-            <article class="project-card">
-                <div class="card-topline">
-                    <span class="card-label">@project.Label</span>
-                    <span class="card-date">@project.VerifiedDate</span>
+            <article class="work-entry">
+                <span class="work-entry-index">@project.Index</span>
+                <div>
+                    <span class="case-type">@project.Type</span>
+                    <h2>@project.Title</h2>
+                    <ul class="tag-list">
+                        @foreach (var tag in project.Tags)
+                        {
+                            <li>@tag</li>
+                        }
+                    </ul>
                 </div>
-                <h2>@project.Title</h2>
-                <p class="project-summary">@project.Summary</p>
-                <p class="project-evidence">@project.Evidence</p>
-                <ul class="tag-list">
-                    @foreach (var tag in project.Tags)
-                    {
-                        <li>@tag</li>
-                    }
-                </ul>
-                <div class="card-actions">
-                    <a class="text-link" href="@project.RepoUrl" target="_blank" rel="noopener noreferrer">Repo</a>
+                <p>@project.Description</p>
+                <div class="work-entry-links">
+                    <a class="mini-link" href="@project.RepoUrl" target="_blank" rel="noopener noreferrer">Repository ↗</a>
                     @if (!string.IsNullOrWhiteSpace(project.LiveUrl))
                     {
-                        <a class="text-link" href="@project.LiveUrl" target="_blank" rel="noopener noreferrer">Live link</a>
+                        <a class="mini-link" href="@project.LiveUrl" target="_blank" rel="noopener noreferrer">Live / video ↗</a>
                     }
                 </div>
             </article>
@@ -41,17 +42,28 @@
     </div>
 </section>
 
+<section class="closing-cta section-frame">
+    <span class="section-number">YOUR PROJECT / NEXT</span>
+    <h2>Need something this list does not cover?</h2>
+    <p>The work can start from an existing system, a rough workflow, or a product idea that still needs a practical shape.</p>
+    <div class="hero-actions">
+        <a class="button button-inverse" href="mailto:awahab.akhan@gmail.com">Discuss the build ↗</a>
+        <a class="button button-outline" href="/techs">See capabilities</a>
+    </div>
+</section>
+
 @code {
     private static readonly IReadOnlyList<ProjectItem> Projects = new[]
     {
-        new ProjectItem("Verified public repo", "2026-08-16 review", "codewithabkhan.github.io", "Public GitHub Pages portfolio rebuilt in Blazor WebAssembly to reflect only verified public evidence.", "Public repo exists on GitHub with `main` and `gh-pages` branches.", "https://github.com/CodeWithAbkhan/codewithabkhan.github.io", "https://codewithabkhan.github.io/", new[] { ".NET 8", "Blazor WebAssembly", "GitHub Pages" }),
-        new ProjectItem("Verified live site + repo", "2026-05-15 live update", "sqlpey.com / sqlpeyNew", "A live technical publishing site with current public pages, matching attribution to abkhan, and a related public source repo updated in 2026.", "The live site returns 200 and the `sqlpeyNew` repo aligns with its current activity.", "https://github.com/CodeWithAbkhan/sqlpeyNew", "https://sqlpey.com/", new[] { "Publishing", "Blazor/.NET topics", "Live public site" }),
-        new ProjectItem("Verified public repo", "2024-03-07 repo creation", "StaticBlazorBlog", "A public .NET 8 ASP.NET Core Blazor tutorial project with a linked YouTube walkthrough.", "Public README and pinned-profile references document the tutorial build.", "https://github.com/CodeWithAbkhan/StaticBlazorBlog", "https://youtu.be/B2TWGlE8noU", new[] { "Blazor", "Static rendering", "Tutorial project" }),
-        new ProjectItem("Verified public repo", "2024-03-21 repo creation", "smpatients", "A documented patient-management project with public screenshots and repository evidence.", "The public README describes the stack, features, and deployment approach, but this site does not present it as a verified live production app.", "https://github.com/CodeWithAbkhan/smpatients", "", new[] { ".NET 8", "Blazor", "Healthcare software" }),
-        new ProjectItem("Verified public repo", "2026-08-03 repo activity", "prism-skygarden-v4", "A recent Three.js reconstruction experiment described publicly as a stylized interpretation built with img2threejs.", "The public README explicitly labels it as interpretation rather than ground-truth geometry.", "https://github.com/CodeWithAbkhan/prism-skygarden-v4", "", new[] { "Three.js", "Experimental build", "Visual reconstruction" }),
-        new ProjectItem("Verified public repo", "2026-08-03 repo activity", "prism-hq-v2", "An interactive procedural architectural scene with day, evening, and night modes described in the public README.", "Public repo and README provide the clearest proof for this creative-coding lane.", "https://github.com/CodeWithAbkhan/prism-hq-v2", "", new[] { "Three.js", "Procedural scene", "Interactive experiment" }),
-        new ProjectItem("Verified public repo", "2025-09-08 repo creation", "EbikeSore-QWEN", "An AI-assisted ecommerce build with real project structure and a public README describing the context-engineering workflow.", "This is best presented as an AI-assisted build experiment, not a verified live storefront.", "https://github.com/CodeWithAbkhan/EbikeSore-QWEN", "", new[] { "AI-assisted build", "Ecommerce", "Experiment" }),
+        new ProjectItem("01", "Open-source product", "MauiPOS", "Cross-platform point-of-sale concept using .NET MAUI and Blazor Hybrid with one reusable interface across form factors.", "https://github.com/CodeWithAbkhan/MauiPOS", "", new[] { ".NET 9", "MAUI", "Blazor Hybrid" }),
+        new ProjectItem("02", "Operational software", "SM Patients", "Patient-management system covering records, files, roles, reviews, and deployment through ASP.NET Core, SQL Server, and Docker.", "https://github.com/CodeWithAbkhan/smpatients", "", new[] { ".NET 8", "Healthcare", "Docker" }),
+        new ProjectItem("03", "AI-assisted build", "QWEN Ecommerce", "Documented context-engineering experiment that produced a Blazor ecommerce application with authentication, Stripe, SQLite, and admin flows.", "https://github.com/CodeWithAbkhan/EbikeSore-QWEN", "https://youtu.be/g1IgxiKPgo8", new[] { "Blazor", "AI workflow", "Payments" }),
+        new ProjectItem("04", "Procedural 3D", "Prism Skygarden", "Interactive floating conservatory reconstructed from concept art with Three.js, rendered day and night states, and a documented visual assessment.", "https://github.com/CodeWithAbkhan/prism-skygarden-v4", "", new[] { "Three.js", "img2threejs", "Visual systems" }),
+        new ProjectItem("05", "Procedural 3D", "Prism HQ", "Interactive architectural scene with generated textures, furnished interiors, traffic, and day, evening, and night controls.", "https://github.com/CodeWithAbkhan/prism-hq-v2", "", new[] { "Three.js", "Creative code", "Interaction" }),
+        new ProjectItem("06", "Business software", "HMS", "Public .NET 9 MAUI Blazor Hybrid repository exploring a desktop patient-management system.", "https://github.com/CodeWithAbkhan/HMS", "", new[] { ".NET 9", "MAUI", "Healthcare" }),
+        new ProjectItem("07", "Technical publishing", "SQLPey", "Live technical publishing surface backed by public source work and a long-running focus on practical software notes.", "https://github.com/CodeWithAbkhan/sqlpeyNew", "https://sqlpey.com/", new[] { "Publishing", ".NET", "Public site" }),
+        new ProjectItem("08", "Learning resource", "Static Blazor Blog", "Public .NET 8 static-rendering tutorial project paired with a video walkthrough.", "https://github.com/CodeWithAbkhan/StaticBlazorBlog", "https://youtu.be/B2TWGlE8noU", new[] { "Blazor", ".NET 8", "Tutorial" }),
     };
 
-    private sealed record ProjectItem(string Label, string VerifiedDate, string Title, string Summary, string Evidence, string RepoUrl, string LiveUrl, IReadOnlyList<string> Tags);
+    private sealed record ProjectItem(string Index, string Type, string Title, string Description, string RepoUrl, string LiveUrl, IReadOnlyList<string> Tags);
 }

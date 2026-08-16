@@ -10,13 +10,14 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.4" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.4" PrivateAssets="all" />
   </ItemGroup>
-   <Target Name="CheckForNpm" BeforeTargets="BuildCSS"> 
-  <Exec Command="npm -v" ContinueOnError="true">
-    <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
-  </Exec>
-    <Error Condition="'$(ErrorCode)' != '0'" Text="You must install NPM "></Error>
-   </Target>
-<Target Name="BuildCSS" BeforeTargets="Compile">
-    <Exec EnvironmentVariables="NODE_ENV=production" Command="npx @tailwindcss/cli -i Styles/app.css -o wwwroot/css/app.css --minify" Condition="'$(Configuration)' == 'Release' " />
-</Target>
+  <Target Name="CheckForNpm" BeforeTargets="BuildCSS">
+    <Exec Command="npm -v" ContinueOnError="true">
+      <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
+    </Exec>
+    <Error Condition="'$(ErrorCode)' != '0'" Text="npm is required to build the production stylesheet." />
+  </Target>
+
+  <Target Name="BuildCSS" BeforeTargets="Compile" Condition="'$(Configuration)' == 'Release'">
+    <Exec EnvironmentVariables="NODE_ENV=production" Command="npm run build:css" />
+  </Target>
 </Project>

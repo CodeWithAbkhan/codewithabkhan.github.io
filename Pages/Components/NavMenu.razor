@@ -1,12 +1,18 @@
-<nav class="topbar">
-    <div class="topbar-inner">
-        <a class="brandmark" href="/">CodeWithABKhan</a>
-        <div class="nav-links">
+<header class="topbar">
+    <nav class="topbar-inner" aria-label="Primary navigation">
+        <a class="brandmark" href="/" aria-label="CodeWithABKhan home">
+            <span class="brand-slash">CW/</span><span>ABK</span>
+        </a>
+
+        <div class="nav-links" aria-label="Site pages">
             <NavLink href="/" Match="NavLinkMatch.All">Home</NavLink>
-            <NavLink href="/about">About</NavLink>
             <NavLink href="/work">Work</NavLink>
-            <NavLink href="/techs">Stack</NavLink>
-            <NavLink href="/contact">Contact</NavLink>
+            <NavLink href="/techs">Capabilities</NavLink>
+            <NavLink href="/about">About</NavLink>
         </div>
-    </div>
-</nav>
+
+        <a class="nav-cta" href="/contact">
+            Start a project <span aria-hidden="true">↗</span>
+        </a>
+    </nav>
+</header>

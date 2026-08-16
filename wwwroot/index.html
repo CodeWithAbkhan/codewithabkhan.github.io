@@ -3,27 +3,61 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CodeWithABKhan | Verified Portfolio</title>
-    <meta name="description" content="Proof-led portfolio for CodeWithABKhan with verified public repositories, public profile links, and clearly labeled current focus areas." />
-    <meta property="og:title" content="CodeWithABKhan | Verified Portfolio" />
-    <meta property="og:description" content="Verified public software proof, public profile links, and clearly labeled current build direction." />
+    <title>CodeWithABKhan | AI Systems &amp; Business Software</title>
+    <meta name="description" content="CodeWithABKhan builds practical AI agents, .NET products, operational business software, and useful open-source systems." />
+    <meta name="author" content="CodeWithABKhan" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://codewithabkhan.github.io/" />
+
+    <meta property="og:title" content="CodeWithABKhan | AI Systems &amp; Business Software" />
+    <meta property="og:description" content="Practical AI systems and business software built with .NET, Blazor, agents, and a proof-first approach." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://codewithabkhan.github.io/" />
-    <meta property="og:image" content="https://codewithabkhan.github.io/favicon.png" />
-    <meta name="theme-color" content="#1b1a3e" />
+    <meta property="og:image" content="https://codewithabkhan.github.io/images/ai-systems-workshop.png" />
+    <meta property="og:image:alt" content="An isometric workshop of connected AI-powered business software modules" />
+    <meta property="og:site_name" content="CodeWithABKhan" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="CodeWithABKhan | AI Systems &amp; Business Software" />
+    <meta name="twitter:description" content="Practical AI agents, operational software, and public builds." />
+    <meta name="twitter:image" content="https://codewithabkhan.github.io/images/ai-systems-workshop.png" />
+
+    <meta name="theme-color" content="#151512" />
     <base href="/" />
     <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
     <link rel="manifest" href="site.webmanifest" />
     <link href="css/app.css" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "CodeWithABKhan",
+      "url": "https://codewithabkhan.github.io/",
+      "email": "mailto:awahab.akhan@gmail.com",
+      "description": "Independent software practice building practical AI agents, .NET products, and operational business software.",
+      "areaServed": "Worldwide",
+      "sameAs": [
+        "https://github.com/CodeWithAbkhan",
+        "https://x.com/smile_Awahab",
+        "https://www.linkedin.com/in/itinteractive/",
+        "https://youtube.com/@codepey",
+        "https://codewithabkhan.gumroad.com/"
+      ]
+    }
+    </script>
 </head>
 <body>
     <div id="app">
-        <div style="padding:2rem;font-family:Segoe UI,sans-serif;">Loading portfolio...</div>
+        <div class="loading-shell" role="status" aria-live="polite">
+            <div class="loading-mark">CW/</div>
+            <span class="sr-only">Loading CodeWithABKhan portfolio</span>
+        </div>
     </div>
     <div id="blazor-error-ui">
-        An error has occurred.
-        <a href="" class="reload">Reload</a>
-        <a class="dismiss">x</a>
+        The portfolio hit an unexpected error.
+        <a href="/" class="reload">Reload</a>
+        <button type="button" class="dismiss" aria-label="Dismiss error message">Dismiss</button>
     </div>
     <script src="_framework/blazor.webassembly.js"></script>
 </body>

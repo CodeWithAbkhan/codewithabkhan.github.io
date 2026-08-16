@@ -1,34 +1,63 @@
 @page "/techs"
 
-<PageTitle>Stack | CodeWithABKhan</PageTitle>
+<PageTitle>Capabilities | CodeWithABKhan</PageTitle>
 
-<section class="section-shell page-intro">
-    <p class="section-kicker">Verified stack signals</p>
-    <h1>Technologies visible in public work</h1>
-    <p>These stack notes are derived from public repositories and portfolio source, not from private resumes or unverifiable claims.</p>
+<section class="subpage-hero section-frame">
+    <div>
+        <span class="section-number">CAPABILITIES / STACK</span>
+        <h1>The tools follow <em>the job.</em></h1>
+    </div>
+    <p class="subpage-intro">
+        The strongest public foundation is .NET and Blazor. AI agents, model integrations,
+        modern interfaces, databases, deployment, and procedural web graphics extend that core.
+    </p>
 </section>
 
-<section class="section-shell">
-    <div class="service-grid">
-        <article class="service-card">
-            <p class="card-label">Core</p>
-            <h2>.NET, Blazor, MAUI</h2>
-            <p>Visible across the portfolio repo, Blazor portfolio work, MAUI POS work, and public HMS repository descriptions.</p>
-        </article>
-        <article class="service-card">
-            <p class="card-label">Web delivery</p>
-            <h2>GitHub Pages and static delivery</h2>
-            <p>Used directly for this portfolio and visible in earlier public site iterations and static content projects.</p>
-        </article>
-        <article class="service-card">
-            <p class="card-label">UI systems</p>
-            <h2>Tailwind, HTML, CSS, JavaScript</h2>
-            <p>Visible in repo structure and older public web projects, including static site work and UI-focused builds.</p>
-        </article>
-        <article class="service-card">
-            <p class="card-label">Current expansion</p>
-            <h2>Three.js and AI-assisted build flows</h2>
-            <p>Suggested by recent public experiments and portfolio positioning, with careful labeling as current direction rather than mature service proof.</p>
-        </article>
+<section class="page-section section-frame">
+    <div class="capability-table">
+        @foreach (var capability in Capabilities)
+        {
+            <article class="capability-row">
+                <div>
+                    <span class="case-type">@capability.Index</span>
+                    <h2>@capability.Title</h2>
+                </div>
+                <p>@capability.Description</p>
+                <div class="capability-tools">
+                    @foreach (var tool in capability.Tools)
+                    {
+                        <span class="chip">@tool</span>
+                    }
+                </div>
+            </article>
+        }
     </div>
 </section>
+
+<section class="field-note section-frame">
+    <div class="field-note-mark" aria-hidden="true">↳</div>
+    <div class="field-note-copy">
+        <span class="section-number">THE RULE</span>
+        <blockquote>Choose the smallest reliable system that can do the whole job.</blockquote>
+        <p>New technology earns its place by reducing friction, improving access, or making the product easier to operate.</p>
+    </div>
+    <div class="field-note-facts">
+        <div><strong>Web</strong><span>responsive products</span></div>
+        <div><strong>Desktop</strong><span>MAUI hybrid systems</span></div>
+        <div><strong>AI</strong><span>agents and integrations</span></div>
+    </div>
+</section>
+
+@code {
+    private static readonly IReadOnlyList<CapabilityItem> Capabilities = new[]
+    {
+        new CapabilityItem("01 / PRODUCT CORE", ".NET application systems", "Full-stack operational software with typed domain logic, reusable UI, data access, and deployment-ready structure.", new[] { "C#", ".NET", "ASP.NET Core", "Blazor", "MAUI" }),
+        new CapabilityItem("02 / INTELLIGENCE", "AI agents and model workflows", "Operator-style workflows, tool-connected assistants, natural-language access, research flows, and human review around high-impact actions.", new[] { "Agents", "LLMs", "Tool calling", "RAG", "Automation" }),
+        new CapabilityItem("03 / INTERFACE", "Product design and frontend", "Responsive interfaces that make complex systems legible for non-technical users across web, desktop, and mobile surfaces.", new[] { "HTML", "CSS", "JavaScript", "Tailwind", "Accessibility" }),
+        new CapabilityItem("04 / DATA", "Business data and reporting", "Relational application data, role-aware views, operational reporting, file workflows, and secure access patterns.", new[] { "SQL Server", "SQLite", "PostgreSQL", "EF Core", "APIs" }),
+        new CapabilityItem("05 / DELIVERY", "Integration and deployment", "Connect existing services, package repeatable environments, publish static or hosted apps, and leave maintainable documentation behind.", new[] { "Docker", "GitHub Actions", "Linux", "GitHub Pages", "Payments" }),
+        new CapabilityItem("06 / EXPERIMENTS", "Procedural and visual systems", "Interactive 3D scenes and image-to-code reconstruction experiments that turn visual references into inspectable browser experiences.", new[] { "Three.js", "WebGL", "Procedural 3D", "Image workflows" }),
+    };
+
+    private sealed record CapabilityItem(string Index, string Title, string Description, IReadOnlyList<string> Tools);
+}

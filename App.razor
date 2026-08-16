@@ -1,12 +1,19 @@
-﻿<Router AppAssembly="@typeof(App).Assembly">
+<Router AppAssembly="@typeof(App).Assembly">
     <Found Context="routeData">
         <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
         <FocusOnNavigate RouteData="@routeData" Selector="h1" />
     </Found>
     <NotFound>
-        <PageTitle>Not found</PageTitle>
+        <PageTitle>Not found | CodeWithABKhan</PageTitle>
         <LayoutView Layout="@typeof(MainLayout)">
-            <p role="alert">Sorry, there's nothing at this address.</p>
+            <section class="not-found section-frame" role="alert">
+                <div>
+                    <span class="section-number">404 / LOST SIGNAL</span>
+                    <h1>404</h1>
+                    <p>This route does not connect to anything useful.</p>
+                    <a class="button button-primary" href="/">Return home →</a>
+                </div>
+            </section>
         </LayoutView>
     </NotFound>
 </Router>
