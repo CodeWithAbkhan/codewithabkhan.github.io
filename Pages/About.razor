@@ -1,13 +1,31 @@
-﻿@page "/about"
+@page "/about"
 
-    
-<div class="px-6 md:px-12 xl:px-6" id="session-about">
-    <SessionAbout />
-      <div class="mt-4 flex flex-row gap-5">
-        <ButtonPrimary Href="/contact" Text="Contact me"/>
-        <ButtonSecondary Href="/work" Text="My Work" />
-      </div>
-</div>
-@code {
+<PageTitle>About | CodeWithABKhan</PageTitle>
 
-}
+<section class="section-shell page-intro">
+    <p class="section-kicker">About this portfolio</p>
+    <h1>A proof-led rebuild</h1>
+    <p>
+        The old version of this site mixed real public work with stale wording, duplicated entries, and outdated profile links.
+        This rebuild keeps the public portfolio grounded in what can be verified today and separates future direction from shipped proof.
+    </p>
+</section>
+
+<section class="section-shell prose-grid">
+    <article class="service-card">
+        <p class="card-label">Verified facts</p>
+        <h2>What the public trail supports</h2>
+        <p>
+            A durable .NET and Blazor foundation, public portfolio iterations, MAUI and business-system repositories, and recent
+            AI-adjacent build experiments that show current technical direction.
+        </p>
+    </article>
+    <article class="service-card">
+        <p class="card-label">Deliberate restraint</p>
+        <h2>What this site will not claim</h2>
+        <p>
+            No fake testimonials. No client logos. No invented metrics. No claims about ROI, automation depth, or production agent systems
+            unless public proof exists to back them up.
+        </p>
+    </article>
+</section>
