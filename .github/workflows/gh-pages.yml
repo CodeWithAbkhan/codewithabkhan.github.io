@@ -19,17 +19,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    env:
-      PUBLISH_FOLDER: bin/Release/net8.0/publish/wwwroot
-
     steps:
       - name: Checkout
         uses: actions/checkout@v7
-
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v6
-        with:
-          dotnet-version: 8.0.x
 
       - name: Setup Node
         uses: actions/setup-node@v7
@@ -37,24 +29,24 @@ jobs:
           node-version: 22
           cache: npm
 
-      - name: Install CSS dependencies
+      - name: Install dependencies
         run: npm ci
 
       - name: Setup Pages
         uses: actions/configure-pages@v6
 
-      - name: Publish site
-        run: dotnet publish --configuration Release -f net8.0
+      - name: Build portfolio
+        run: npm run build
 
       - name: Prepare SPA fallback
         run: |
-          cp "$GITHUB_WORKSPACE/${{ env.PUBLISH_FOLDER }}/index.html" "$GITHUB_WORKSPACE/${{ env.PUBLISH_FOLDER }}/404.html"
-          touch "$GITHUB_WORKSPACE/${{ env.PUBLISH_FOLDER }}/.nojekyll"
+          cp dist/index.html dist/404.html
+          touch dist/.nojekyll
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v5
         with:
-          path: ${{ env.PUBLISH_FOLDER }}
+          path: dist
 
   deploy:
     needs: build
